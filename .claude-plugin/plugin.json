@@ -1,0 +1,11 @@
+{
+  "name": "bayesian-compose",
+  "version": "1.0.0",
+  "description": "Epistemic message composer with 30 Bayesian rationality criteria (LessWrong Sequences). Socratic interview before writing, draft generation with epistemic diagnosis, 4-tier scoring from recipient's perspective. Supports any message type (email, Slack, WhatsApp, etc.). Companion tool to email-triage: one filters what you receive, the other optimizes what you send.",
+  "author": {
+    "name": "Pablo Rodríguez López",
+    "url": "https://mindandhealth.org"
+  },
+  "license": "Apache-2.0",
+  "keywords": ["compose", "writing", "message", "email", "epistemic", "bayesian", "rationality", "lesswrong", "productivity", "communication", "scoring", "quality"]
+}
