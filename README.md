@@ -372,7 +372,7 @@ Score máximo teórico: +55. Score mínimo teórico: -62.
 ## Créditos
 
 Diseñado por Pablo Rodríguez López ([mindandhealth.org](https://mindandhealth.org/))
-con asistencia de Claude.
+con asistencia de Claude y **Vibe Code** (coautor en implementaciones de compatibilidad).
 
 Criterios epistémicos basados en las [Sequences](https://www.lesswrong.com/rationality)
 de Eliezer Yudkowsky (LessWrong).
