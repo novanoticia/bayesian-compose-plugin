@@ -1,0 +1,443 @@
+# ═══════════════════════════════════════════════════════════════
+# BAYESIAN COMPOSE v1.0 — Configuración del usuario
+# ═══════════════════════════════════════════════════════════════
+#
+# Este archivo define quién eres, cómo quieres que se presente
+# el output, y los pesos de los 30 criterios epistémicos que el
+# skill usa para evaluar cada mensaje que compones.
+#
+# Basado en los mismos 30 criterios de racionalidad bayesiana
+# (LessWrong Sequences) del plugin email-triage, invertidos
+# para composición/emisión de mensajes.
+#
+# ═══════════════════════════════════════════════════════════════
+
+usuario:
+  nombre: ""
+  # ⚠️ OBLIGATORIO — Tu nombre. Se usa para personalizar el output.
+
+  perfil: |
+    # Opcional pero recomendado — Describe tu rol, formación e intereses
+    # en 2-4 líneas. Ayuda a Claude a calibrar sugerencias y a modelar
+    # cómo te perciben tus destinatarios habituales.
+    # Ej: "Sysadmin senior + estudiante de psicología. Proyectos:
+    # SAPAME (salud mental), mindandhealth.org. Comunicación técnica
+    # y científica."
+
+  idioma: "es"
+  # Idioma para el output: "es", "en", "fr", "de", etc.
+
+# ───────────────────────────────────────────────────────────────
+# Tipo de mensaje por defecto
+# ───────────────────────────────────────────────────────────────
+
+mensaje:
+  tipo_default: "email"
+  # Tipo de mensaje por defecto cuando no se especifica.
+  # Opciones: "email", "slack", "whatsapp", "carta", "general"
+  # Afecta las expectativas de formato (saludo, firma, longitud).
+
+  tono_default: "profesional"
+  # Tono por defecto. Opciones sugeridas:
+  # "profesional", "informal", "formal", "directo", "empático"
+  # Claude lo usa como guía, no como restricción rígida.
+
+  incluir_saludo: true
+  # Si true, el borrador incluye saludo apropiado al tipo.
+  # Si false, va directo al contenido (el usuario añade saludo).
+
+  incluir_despedida: true
+  # Si true, incluye cierre apropiado al tipo.
+  # Si false, termina con el contenido.
+
+# ───────────────────────────────────────────────────────────────
+# Entrevista
+# ───────────────────────────────────────────────────────────────
+
+entrevista:
+  pregunta_6_auto: true
+  # Si true, Claude decide automáticamente si hacer la pregunta 6
+  # (contexto del receptor) basándose en las respuestas anteriores.
+  # Si false, siempre la hace.
+
+  gate_estricto: true
+  # Si true, la pregunta 1 es un gate real: si no hay acción concreta,
+  # Claude ofrece opciones (repensar / continuar / no enviar).
+  # Si false, Claude advierte pero continúa siempre.
+
+# ───────────────────────────────────────────────────────────────
+# Output
+# ───────────────────────────────────────────────────────────────
+
+output:
+  mostrar_nivel_1: true
+  # Nivel 1: El mensaje + score + tier
+  # Siempre debería estar activo.
+
+  mostrar_nivel_2: true
+  # Nivel 2: Top 3 fortalezas + top 3 debilidades con sugerencias
+
+  mostrar_nivel_3: true
+  # Nivel 3: Desglose completo de los 30 criterios
+
+  razones_positivas: 3
+  # Número de fortalezas a mostrar en Nivel 2
+
+  razones_negativas: 3
+  # Número de debilidades a mostrar en Nivel 2
+
+  mostrar_notas_editoriales: true
+  # Si true, marca con [NOTA] las decisiones editoriales en el borrador
+  # que el usuario debería revisar.
+
+# ───────────────────────────────────────────────────────────────
+# Tiers (umbrales de routing)
+# ───────────────────────────────────────────────────────────────
+
+tiers:
+  reply_needed: 10
+  # Score mínimo para predecir que el receptor respondería activamente.
+
+  review: 4
+  # Score mínimo para predecir que el receptor leería con atención.
+
+  reading_later: 0
+  # Score mínimo para predecir que el receptor lo leería "cuando pueda".
+
+  archive: -1
+  # Por debajo de este score, el receptor probablemente ignoraría el mensaje.
+
+# ───────────────────────────────────────────────────────────────
+# Criterios epistémicos (30 criterios)
+# ───────────────────────────────────────────────────────────────
+#
+# Cada criterio tiene:
+#   - activo: si se evalúa o se salta
+#   - core: si es obligatorio (no puede ser n/a)
+#   - weight: peso relativo (determina la puntuación máxima/mínima)
+#   - question: pregunta operativa de emisión
+#
+# Los pesos son idénticos a email-triage para mantener coherencia
+# entre los dos plugins.
+#
+# ───────────────────────────────────────────────────────────────
+
+criterios_epistemicos:
+
+  # ── GRUPO A: Criterio base ──────────────────────────────────
+
+  cambia_algo_concreto:
+    activo: true
+    core: true
+    weight: 5
+    question: "¿Mi mensaje contiene una acción o cambio concreto para el destinatario?"
+    escala:
+      accion_explicita: 5
+      accion_implicita: 2
+      puramente_informativo: -5
+
+  # ── GRUPO B: Actualización bayesiana ────────────────────────
+
+  cambio_predicciones:
+    activo: true
+    core: true
+    weight: 4
+    question: "¿Mi mensaje contiene información que actualizaría el modelo de realidad del destinatario?"
+    escala:
+      nuevo_para_receptor: 4
+      parcialmente_nuevo: 1
+      ya_conocido: -3
+
+  sorpresa_bayesiana:
+    activo: true
+    core: true
+    weight: 3
+    question: "¿Le estoy diciendo al destinatario algo que probablemente NO esperaba?"
+    escala:
+      alta: 3
+      media: 1
+      baja: -2
+
+  evidencia_filtrada:
+    activo: true
+    core: true
+    weight: -3
+    question: "¿Estoy incluyendo TODA la evidencia relevante, o solo la que favorece mi posición?"
+    escala:
+      equilibrado: 0
+      selectivamente_persuasivo: -2
+      unilateral: -3
+
+  forward_backward_flow:
+    activo: true
+    core: true
+    weight: 3
+    question: "¿Estoy explorando hacia adelante o buscando confirmación para algo que ya decidí?"
+    escala:
+      forward: 3
+      mixto: 0
+      backward: -2
+
+  # ── GRUPO C: Diseño atencional y utilidad ───────────────────
+
+  retorno_atencional:
+    activo: true
+    core: false
+    weight: 2
+    question: "¿El tiempo que el destinatario invierte en leer esto está bien empleado?"
+    escala:
+      alto: 2
+      medio: 0
+      bajo: -2
+
+  confusion_productiva:
+    activo: true
+    core: false
+    weight: 4
+    question: "¿Mi mensaje hace visible una tensión productiva que vale la pena examinar?"
+    escala:
+      si: 4
+      no: 0
+
+  impacto_causal_real:
+    activo: true
+    core: true
+    weight: 4
+    question: "Si el destinatario actúa sobre mi mensaje, ¿cuánto cambia realmente el resultado?"
+    escala:
+      alto: 4
+      medio: 2
+      bajo: 0
+
+  ruido_social:
+    activo: true
+    core: false
+    weight: -3
+    question: "¿Escribo porque tengo contenido real o porque me siento socialmente obligado?"
+    escala:
+      contenido_real: 0
+      mixto: -1
+      ritual: -3
+
+  abre_opciones:
+    activo: true
+    core: false
+    weight: 3
+    question: "¿Mi mensaje le da al destinatario una posibilidad nueva que no tenía?"
+    escala:
+      si: 3
+      no: 0
+
+  distancia_inferencial:
+    activo: true
+    core: false
+    weight: -2
+    question: "¿He calibrado la complejidad al nivel de conocimiento del destinatario?"
+    escala:
+      baja: 0
+      media: -1
+      alta: -2
+
+  agente_estrategico:
+    activo: true
+    core: false
+    weight: -3
+    question: "¿Escribo para informar o para manipular? ¿Mi intención es transparente?"
+    escala:
+      verdad: 0
+      quiza: -1
+      influencia: -3
+
+  densidad_informativa:
+    activo: true
+    core: false
+    weight: -2
+    question: "¿Cada frase de mi mensaje aporta información nueva, o estoy rellenando?"
+    escala:
+      alta: 1
+      media: 0
+      baja: -2
+
+  urgencia_real_vs_fabricada:
+    activo: true
+    core: true
+    weight: 3
+    question: "Si transmito urgencia, ¿está respaldada por consecuencias reales y verificables?"
+    escala:
+      real: 3
+      neutral: 0
+      fabricada: -3
+
+  relevancia_longitudinal:
+    activo: true
+    core: false
+    weight: 4
+    question: "¿El destinatario valorará este mensaje dentro de un mes?"
+    escala:
+      si: 4
+      quiza: 1
+      no: 0
+
+  # ── GRUPO D: Anti-sesgo y calidad argumental ────────────────
+
+  motivated_stopping:
+    activo: true
+    core: false
+    weight: -2
+    question: "¿Estoy empujando al destinatario a cerrar una decisión antes de que debería?"
+    escala:
+      si: -2
+      no: 0
+
+  motivated_continuation:
+    activo: true
+    core: false
+    weight: -2
+    question: "¿Estoy manteniendo abierto algo que debería cerrarse?"
+    escala:
+      si: -2
+      no: 0
+
+  true_rejection:
+    activo: true
+    core: false
+    weight: 2
+    question: "Si planteo objeciones, ¿son sustantivas o son estéticas/políticas?"
+    escala:
+      real: 2
+      mixta: 0
+      superficial: -2
+    # n/a si el mensaje no contiene objeciones
+
+  third_alternative:
+    activo: true
+    core: false
+    weight: 3
+    question: "¿He considerado y presentado opciones más allá del binario obvio?"
+    escala:
+      si: 3
+      no: 0
+    # n/a si el mensaje no presenta opciones
+
+  privileging_the_hypothesis:
+    activo: true
+    core: false
+    weight: -3
+    question: "¿Presento mi opción preferida como si fuera la obvia sin suficiente evidencia?"
+    escala:
+      si: -3
+      no: 0
+
+  proper_humility:
+    activo: true
+    core: false
+    weight: 3
+    question: "Cuando expreso incertidumbre, ¿ofrezco formas concretas de verificar o mitigar?"
+    escala:
+      operativa: 3
+      neutral: 0
+      vaga: -2
+    # n/a si el mensaje no expresa incertidumbre
+
+  positive_bias:
+    activo: true
+    core: false
+    weight: -2
+    question: "¿Solo presento evidencia que apoya mi posición, ignorando la contraria?"
+    escala:
+      si: -2
+      no: 0
+
+  argument_screens_off_authority:
+    activo: true
+    core: true
+    weight: 3
+    question: "¿Sustento mi posición con argumentos y evidencia, o con mi puesto/experiencia?"
+    escala:
+      argumento_fuerte: 3
+      mixto: 0
+      solo_autoridad: -2
+
+  hug_the_query:
+    activo: true
+    core: true
+    weight: 4
+    question: "¿Cada parte de mi mensaje es directamente relevante a la pregunta/decisión central?"
+    escala:
+      directo: 4
+      adyacente: 1
+      tangencial: -2
+
+  semantic_stopsigns:
+    activo: true
+    core: true
+    weight: -3
+    question: "¿Uso buzzwords, jerga o etiquetas que cierran el pensamiento en vez de abrirlo?"
+    escala:
+      si: -3
+      no: 0
+
+  fake_justification:
+    activo: true
+    core: false
+    weight: -3
+    question: "¿Decidí primero y luego construí el razonamiento para justificarlo?"
+    escala:
+      si: -3
+      no: 0
+
+  fake_optimization_criteria:
+    activo: true
+    core: false
+    weight: -2
+    question: "¿Elijo los criterios de evaluación para que mi opción preferida gane?"
+    escala:
+      si: -2
+      no: 0
+    # n/a si el mensaje no compara opciones con criterios
+
+  entangled_truths:
+    activo: true
+    core: true
+    weight: 3
+    question: "¿Mi mensaje está anclado a hechos verificables — fechas, números, tickets, métricas?"
+    escala:
+      alto: 3
+      medio: 1
+      flotante: -2
+
+  cached_thought:
+    activo: true
+    core: false
+    weight: -2
+    question: "¿Estoy escribiendo pensamiento original o reciclando una respuesta estándar?"
+    escala:
+      original: 1
+      mixto: 0
+      enlatado: -2
+
+  absence_of_expected_evidence:
+    activo: true
+    core: true
+    weight: -3
+    question: "¿Falta información que el destinatario esperaría encontrar en un mensaje de esta importancia?"
+    escala:
+      si: -3
+      no: 0
+
+# ───────────────────────────────────────────────────────────────
+# Telemetría (opcional)
+# ───────────────────────────────────────────────────────────────
+#
+# Solo se escribe si el directorio ~/.bayesian-compose/ existe.
+# El skill NO lo crea automáticamente.
+# Para activar: mkdir -p ~/.bayesian-compose
+#
+# ───────────────────────────────────────────────────────────────
+
+telemetria:
+  guardar_sesiones: true
+  # Registra cada sesión: score final, tipo de mensaje, criterios activados
+
+  guardar_patrones: true
+  # Registra patrones recurrentes del usuario para feedback longitudinal
