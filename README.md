@@ -197,13 +197,13 @@ Después del diagnóstico, iteras hablando — sin reinvocar el skill:
 
 ### Desde Claude Chat (Skills)
 
-1. Descarga el paquete [bayesian-compose-skill.zip](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/bayesian-compose-skill.zip).
+1. Descarga el paquete [bayesian-compose.zip](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/bayesian-compose.zip).
 2. En Claude Chat, ve a **Skills** → **Importar** y sube el `.zip`.
 3. Activa el skill **bayesian-compose** en tu conversación.
 
 ### Desde Perplexity (Skills)
 
-1. Descarga el paquete [bayesian-compose-skill.zip](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/bayesian-compose-skill.zip).
+1. Descarga el paquete [bayesian-compose.zip](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/bayesian-compose.zip).
 2. En Perplexity, ve a **Skills** → **Subir/Importar skill** y selecciona el `.zip`.
 
 > **Nota técnica:** Perplexity valida el campo `description` del skill **en bytes UTF-8** (límite: 1024). La descripción de este skill ocupa **606 bytes**, por lo que la importación es directa. Si editas la descripción, no superes ~1000 bytes UTF-8.
