@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Resource forks / archivos auxiliares de macOS
+._*
+__MACOSX/
