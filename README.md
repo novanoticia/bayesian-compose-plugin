@@ -206,7 +206,12 @@ Después del diagnóstico, iteras hablando — sin reinvocar el skill:
 1. Descarga el paquete [bayesian-compose.zip](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/bayesian-compose.zip).
 2. En Perplexity, ve a **Skills** → **Subir/Importar skill** y selecciona el `.zip`.
 
-> **Nota técnica:** Perplexity valida el campo `description` del skill **en bytes UTF-8** (límite: 1024). La descripción de este skill ocupa **606 bytes**, por lo que la importación es directa. Si editas la descripción, no superes ~1000 bytes UTF-8.
+> **Nota técnica:** el límite de longitud del campo `description` depende de la plataforma: Perplexity valida **en bytes UTF-8** (límite 1024) y Mistral **en caracteres** (límite 500). La descripción de este skill mide **434 caracteres / 446 bytes**, dentro de ambos umbrales. Si la editas, no superes los **500 caracteres** para conservar la compatibilidad con Mistral.
+
+### Desde Mistral AI (Skills)
+
+1. Descarga el paquete [bayesian-compose.zip](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/bayesian-compose.zip) y **descomprímelo**.
+2. En Mistral AI, dentro del espacio **Work**, abre **Skills** y selecciona la **carpeta** resultante (`bayesian-compose/`, la que contiene `SKILL.md`).
 
 ### Verificar instalación
 
