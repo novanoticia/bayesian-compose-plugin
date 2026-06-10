@@ -1,4 +1,4 @@
-# Bayesian Compose v1.0.0
+# Bayesian Compose v1.1.0
 
 Composición epistémica de mensajes para Claude Cowork y Claude Code.
 

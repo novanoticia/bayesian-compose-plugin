@@ -9,7 +9,7 @@
       "name": "bayesian-compose",
       "source": "./plugins/bayesian-compose",
       "description": "Epistemic message composer v1.0.0: 30 Bayesian criteria (LessWrong Sequences), Socratic interview before writing, draft generation with full diagnosis from recipient's perspective, 4-tier scoring. Companion to email-triage.",
-      "version": "1.0.0"
+      "version": "1.1.0"
     }
   ]
 }
