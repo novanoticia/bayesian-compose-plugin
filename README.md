@@ -2,6 +2,19 @@
 
 Composición epistémica de mensajes para Claude Cowork y Claude Code.
 
+> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon,
+> Microsoft, Cursor y Vercel, con Google como *core maintainer*).
+> El paquete lleva el manifiesto portable `plugin.json` en la raíz del plugin y
+> el skill en `plugins/bayesian-compose/skills/bayesian-compose/SKILL.md`, así que cualquier cliente conformante lo descubre.
+>
+> **Funciona en ChatGPT.** El skill es texto: instrucciones y criterios, sin
+> ejecución local, así que se sube tal cual a *Plugins → Skills → Create →
+> Upload from your computer* y funciona igual que en Claude. Su frontmatter
+> valida contra el conjunto cerrado de [Agent Skills](https://agentskills.io/specification),
+> que es lo que ChatGPT, claude.ai y la Skills API exigen para aceptar la subida
+> —una clave de más ahí no se ignora, falla con error duro—. Las *Skills* de
+> ChatGPT requieren plan Business, Enterprise, Healthcare o Edu.
+
 ## Qué hace
 
 Te entrevista antes de escribir cualquier mensaje (email, Slack, WhatsApp, carta,
