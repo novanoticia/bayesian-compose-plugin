@@ -8,12 +8,13 @@ Composición epistémica de mensajes para Claude Cowork y Claude Code.
 > el skill en `plugins/bayesian-compose/skills/bayesian-compose/SKILL.md`, así que cualquier cliente conformante lo descubre.
 >
 > **Funciona en ChatGPT.** El skill es texto: instrucciones y criterios, sin
-> ejecución local, así que se sube tal cual a *Plugins → Skills → Create →
-> Upload from your computer* y funciona igual que en Claude. Su frontmatter
+> ejecución local, así que se instala activando **Work** en el selector de ChatGPT y
+> añadiéndolo desde **Complementos**, por nombre o por la URL de este repositorio.
+> Funciona igual que en Claude. Su frontmatter
 > valida contra el conjunto cerrado de [Agent Skills](https://agentskills.io/specification),
 > que es lo que ChatGPT, claude.ai y la Skills API exigen para aceptar la subida
-> —una clave de más ahí no se ignora, falla con error duro—. Las *Skills* de
-> ChatGPT requieren plan Business, Enterprise, Healthcare o Edu.
+> —una clave de más ahí no se ignora, falla con error duro—. Están también en el
+> **plan gratuito**, con límites de uso.
 
 ## Qué hace
 
