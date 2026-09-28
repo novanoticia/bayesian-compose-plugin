@@ -398,6 +398,10 @@ de Eliezer Yudkowsky (LessWrong).
 
 Icono generado con ChatGPT (imagen creada con IA).
 
+## Privacidad
+
+El plugin no envía datos fuera de la plataforma ni guarda nada por defecto. Detalles en la [política de privacidad (Privacy)](./PRIVACY.md).
+
 ## Licencia
 
 Apache 2.0 — ver [LICENSE](./LICENSE).
