@@ -7,5 +7,6 @@
     "url": "https://mindandhealth.org"
   },
   "license": "Apache-2.0",
+  "privacyPolicyUrl": "https://github.com/novanoticia/bayesian-compose-plugin/blob/main/PRIVACY.md",
   "keywords": ["compose", "writing", "message", "email", "epistemic", "bayesian", "rationality", "lesswrong", "productivity", "communication", "scoring", "quality"]
 }
