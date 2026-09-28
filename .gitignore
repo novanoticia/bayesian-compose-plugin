@@ -7,3 +7,7 @@ Icon
 # Resource forks / archivos auxiliares de macOS
 ._*
 __MACOSX/
+
+# Paquete del skill: se publica como asset de GitHub Releases, no en el repo
+# (el validador del directorio de plugins de Claude no inspecciona binarios)
+*.zip
