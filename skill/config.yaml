@@ -432,6 +432,8 @@ criterios_epistemicos:
 # Solo se escribe si el directorio ~/.bayesian-compose/ existe.
 # El skill NO lo crea automáticamente.
 # Para activar: mkdir -p ~/.bayesian-compose
+# Solo metadatos: nunca se registra el texto del mensaje ni datos
+# identificativos del destinatario o de terceros.
 #
 # ───────────────────────────────────────────────────────────────
 

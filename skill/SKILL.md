@@ -417,6 +417,11 @@ Si el directorio `~/.bayesian-compose/` existe, el skill puede registrar:
 La telemetría es puramente local y opt-in. No se escribe nada sin que el
 usuario tenga el directorio creado.
 
+**Privacidad:** la telemetría registra solo metadatos (scores, tipo de
+mensaje, criterios, iteraciones). **Nunca** registrar el texto del mensaje
+o del borrador, ni nombres, direcciones de email, teléfonos u otros datos
+identificativos del destinatario o de terceros.
+
 El skill NO crea el directorio automáticamente. Si el usuario quiere
 telemetría, debe crearlo manualmente:
 ```
