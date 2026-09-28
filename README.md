@@ -396,6 +396,8 @@ con asistencia de Claude y **Vibe Code** (coautor en implementaciones de compati
 Criterios epistémicos basados en las [Sequences](https://www.lesswrong.com/rationality)
 de Eliezer Yudkowsky (LessWrong).
 
+Icono generado con ChatGPT (imagen creada con IA).
+
 ## Licencia
 
 Apache 2.0 — ver [LICENSE](./LICENSE).
