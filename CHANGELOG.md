@@ -2,6 +2,17 @@
 
 Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/); versionado [SemVer](https://semver.org/lang/es/) (mayor = ruptura, menor = ampliación, parche = correcciones).
 
+## [1.2.0] — 2026-10-06
+
+### Añadido
+- Soporte multiidioma en español (`es`) e inglés (`en`), ampliable a otros idiomas.
+- Selección automática del idioma de interacción con `idioma: "auto"`.
+- Tabla de equivalencias al inglés en `references/i18n/en.md`.
+- Traducción completa de la documentación en `README.en.md`.
+
+### Cambiado
+- Valor por defecto de `idioma` de `"es"` a `"auto"`, sin cambio para quien escribe en español.
+
 ## [1.1.0] — 2026-06-10
 
 ### Añadido

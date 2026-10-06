@@ -24,8 +24,8 @@ usuario:
     # SAPAME (salud mental), mindandhealth.org. Comunicación técnica
     # y científica."
 
-  idioma: "es"
-  # Idioma para el output: "es", "en", "fr", "de", etc.
+  idioma: "auto"
+  # Idioma de interacción: "auto" (el del usuario; si no se detecta, español) o un código ISO 639-1: "es", "en", "fr", "de"...
 
 # ───────────────────────────────────────────────────────────────
 # Tipo de mensaje por defecto

@@ -1,4 +1,5 @@
-# Bayesian Compose v1.1.0
+# Bayesian Compose v1.2.0
+🇬🇧 [English version](README.en.md)
 
 Composición epistémica de mensajes para Claude Cowork y Claude Code.
 
@@ -191,6 +192,16 @@ Después del diagnóstico, iteras hablando — sin reinvocar el skill:
 | **Composición** | Quieres escribir un mensaje nuevo | Entrevista completa → borrador → diagnóstico |
 | **Evaluación** | Ya tienes un borrador | Salta la entrevista de contenido, evalúa directamente |
 | **Respuesta** | Quieres responder a un mensaje recibido | Entrevista adaptada al contexto del hilo |
+
+## Idiomas
+
+El skill funciona en español (`es`) e inglés (`en`). Por defecto,
+`usuario.idioma` en `config.yaml` tiene el valor `"auto"`: usa el idioma del
+primer mensaje del usuario y, si no puede determinarlo, español.
+
+Para forzar un idioma, sustituye `idioma: "auto"` por `idioma: "es"` o
+`idioma: "en"` dentro de `usuario` en `config.yaml`. El borrador puede usar
+otro idioma si lo indicas para el destinatario.
 
 ## Instalación
 

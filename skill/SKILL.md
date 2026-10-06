@@ -1,12 +1,12 @@
 ---
 name: bayesian-compose
 description: >-
-  Asistente epistémico para componer mensajes: guía con una entrevista socrática antes de redactar (email, Slack, WhatsApp, etc.) y evalúa el borrador con 30 criterios de racionalidad bayesiana (LessWrong Sequences) invertidos para emisión (no "¿merece mi atención?" sino "¿merece la atención del destinatario?"). Se activa con frases como "compón un mensaje", "ayúdame a escribir un email", "bayesian compose" o "evalúa este borrador".
+  Asistente epistémico para componer mensajes (email, Slack, WhatsApp, etc.): guía con una entrevista socrática antes de redactar y evalúa el borrador con 30 criterios de racionalidad bayesiana (LessWrong Sequences), invertidos para emisión: «¿merece la atención del destinatario?». Se activa con "compón un mensaje", "ayúdame a escribir un email", "evalúa este borrador", "bayesian compose", "compose a message", "help me write an email" o "review this draft".
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
-# Bayesian Compose v1.1 — Composición epistémica de mensajes
+# Bayesian Compose v1.2 — Composición epistémica de mensajes
 
 ## Qué hace este skill
 
@@ -58,6 +58,30 @@ Si no existe, pide al usuario estos campos mínimos:
 
 Sin perfil, la estimación de perspectiva del receptor es menos precisa,
 pero el skill funciona igualmente con criterios universales.
+
+### Idioma de la conversación
+
+El idioma de interacción se resuelve antes de iniciar la entrevista:
+
+- Si `usuario.idioma` en `config.yaml` es un código distinto de `"auto"`,
+  usar ese idioma.
+- Si es `"auto"` o no hay configuración, usar el idioma del primer mensaje
+  del usuario y cambiarlo si el usuario lo pide.
+- Si no se puede determinar el idioma, usar español.
+
+Todo lo que ve el usuario —entrevista, gate, explicaciones, encabezados del
+output y diagnóstico— se presenta en el idioma de interacción.
+
+El borrador del mensaje se redacta en el idioma que el usuario indique para
+el destinatario; si no lo indica, en el idioma de interacción.
+
+Los textos en español de este `SKILL.md` son la referencia canónica. Para
+otro idioma, usar `references/i18n/<código>.md` si existe; si no, traducir
+fielmente sobre la marcha, sin alterar el sentido de preguntas, criterios
+ni reglas.
+
+No se traducen los identificadores de tier en MAYÚSCULAS, los emojis, los
+números de criterio (#1–#30), el formato de los scores ni la fórmula.
 
 ---
 
