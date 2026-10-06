@@ -5,6 +5,8 @@ Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan a
 ## [Unreleased]
 
 ### Añadido
+- Soporte en francés con `references/i18n/fr.md` en ambas copias del skill.
+- Traducción de la documentación en `README.fr.md`.
 - Reconocimiento a Codex de OpenAI (ChatGPT) en los créditos de ambos README.
 
 ### Corregido
