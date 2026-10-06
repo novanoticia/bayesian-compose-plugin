@@ -1,4 +1,4 @@
-🇪🇸 [Versión en español](README.md)
+🇪🇸 [Versión en español](README.md) · 🇫🇷 [Version française](README.fr.md)
 
 # Bayesian Compose v1.2.0
 
@@ -196,13 +196,16 @@ After the diagnosis, you iterate through conversation — without invoking the s
 
 ## Languages
 
-The skill works in Spanish (`es`) and English (`en`). By default,
+The skill works in Spanish (`es`), English (`en`) and French (`fr`). By default,
 `usuario.idioma` in `config.yaml` is set to `"auto"`: it uses the language of
 the user's first message and, if it cannot determine it, Spanish.
 
 To force a language, replace `idioma: "auto"` with `idioma: "es"` or
-`idioma: "en"` under `usuario` in `config.yaml`. The draft can use another
+`idioma: "en"` or `idioma: "fr"` under `usuario` in `config.yaml`. The draft can use another
 language if you specify it for the recipient.
+
+In French, the skill activates based on the meaning of the request, with
+"bayesian compose" or with `/bayesian-compose`.
 
 ## Installation
 

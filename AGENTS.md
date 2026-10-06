@@ -39,8 +39,9 @@ Si `claude`, `ruby` o PyYAML no están disponibles en tu entorno, dilo explícit
 - Ubicación de las traducciones: `references/i18n/<código>.md` en `skill/`
   y en `plugins/bayesian-compose/skills/bayesian-compose/`.
 - Español: referencia canónica y fallback. Idiomas con tabla: `es`
-  (canónico, en `SKILL.md`) y `en` (`references/i18n/en.md`). Si no existe
-  tabla para otro idioma, se traduce fielmente sobre la marcha.
+  (canónico, en `SKILL.md`), `en` (`references/i18n/en.md`) y `fr`
+  (`references/i18n/fr.md`). Si no existe tabla para otro idioma, se
+  traduce fielmente sobre la marcha.
 - Para añadir un idioma: crear `<código>.md` con la misma estructura que
   `en.md`, en ambas copias.
 - Para añadir un texto nuevo: añadirlo en `SKILL.md` en español y su
