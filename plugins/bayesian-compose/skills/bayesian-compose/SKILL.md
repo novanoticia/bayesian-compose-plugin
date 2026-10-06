@@ -34,16 +34,6 @@ por conversación.
 5. **Reescritura bajo petición** — el skill genera un borrador-guía primero.
    Solo reescribe o pule si el usuario lo pide explícitamente.
 
-Guía al usuario a redactar mensajes de alta calidad epistémica usando un
-marco de 30 criterios inspirados en racionalidad bayesiana (LessWrong
-Sequences). No es un "reescritor de emails" — es un ejercicio de **empatía
-epistémica**: te obliga a pensar desde la perspectiva del receptor antes de
-escribir.
-
-Opera en fases secuenciales: configuración → entrevista socrática (con gate) →
-generación de borrador → diagnóstico de los 30 criterios → iteración libre
-por conversación.
-
 ---
 
 ## PASO 0 — Leer configuración
