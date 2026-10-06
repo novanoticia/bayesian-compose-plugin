@@ -2,6 +2,11 @@
 
 Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/); versionado [SemVer](https://semver.org/lang/es/) (mayor = ruptura, menor = ampliación, parche = correcciones).
 
+## [Unreleased]
+
+### Añadido
+- Reconocimiento a Codex de OpenAI (ChatGPT) en los créditos de ambos README.
+
 ## [1.2.0] — 2026-10-06
 
 ### Añadido
