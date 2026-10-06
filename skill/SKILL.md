@@ -3,10 +3,10 @@ name: bayesian-compose
 description: >-
   Asistente epistémico para componer mensajes (email, Slack, WhatsApp, etc.): guía con una entrevista socrática antes de redactar y evalúa el borrador con 30 criterios de racionalidad bayesiana (LessWrong Sequences), invertidos para emisión: «¿merece la atención del destinatario?». Se activa con "compón un mensaje", "ayúdame a escribir un email", "evalúa este borrador", "bayesian compose", "compose a message", "help me write an email" o "review this draft".
 metadata:
-  version: "1.2.0"
+  version: "1.3.0"
 ---
 
-# Bayesian Compose v1.2 — Composición epistémica de mensajes
+# Bayesian Compose v1.3 — Composición epistémica de mensajes
 
 ## Qué hace este skill
 

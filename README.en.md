@@ -1,6 +1,6 @@
 🇪🇸 [Versión en español](README.md) · 🇫🇷 [Version française](README.fr.md)
 
-# Bayesian Compose v1.2.0
+# Bayesian Compose v1.3.0
 
 Epistemic message composition for Claude Cowork and Claude Code.
 
