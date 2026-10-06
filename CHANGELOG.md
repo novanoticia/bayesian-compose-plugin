@@ -2,7 +2,7 @@
 
 Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/); versionado [SemVer](https://semver.org/lang/es/) (mayor = ruptura, menor = ampliación, parche = correcciones).
 
-## [Unreleased]
+## [1.3.0] — 2026-10-06
 
 ### Añadido
 - Soporte en francés con `references/i18n/fr.md` en ambas copias del skill.
