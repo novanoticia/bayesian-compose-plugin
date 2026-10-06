@@ -7,6 +7,11 @@ Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan a
 ### Añadido
 - Reconocimiento a Codex de OpenAI (ChatGPT) en los créditos de ambos README.
 
+### Corregido
+- El comando `/bayes` ahora se incluye en el plugin instalable.
+- Eliminado el párrafo duplicado de `SKILL.md`.
+- Eliminadas las referencias de versión desfasadas en `marketplace.json` y `config.yaml`.
+
 ## [1.2.0] — 2026-10-06
 
 ### Añadido

@@ -9,6 +9,7 @@ Solo hay Markdown, JSON y YAML. No hay código ejecutable, dependencias, build, 
 - Plugin: `claude plugin validate plugins/bayesian-compose` → debe pasar sin avisos.
 - JSON: `for f in $(git ls-files '*.json'); do jq empty "$f" || echo "FALLA $f"; done` → sin "FALLA".
 - YAML: `ruby -ryaml -e 'ARGV.each{|f| YAML.load_file(f)}' $(git ls-files '*.yaml')` (o `python3 -c "import yaml,sys;[yaml.safe_load(open(f)) for f in sys.argv[1:]]" ...`) → sin error.
+- Comando sincronizado: `diff commands/bayes.md plugins/bayesian-compose/commands/bayes.md` → sin salida.
 - Copias sincronizadas: `diff -r skill plugins/bayesian-compose/skills/bayesian-compose` → la única salida permitida es `Only in skill: .skill.json`.
 - Longitud de `description` del skill (≤ 500 caracteres y ≤ 1024 bytes):
   `python3 -c "import re;s=open('skill/SKILL.md',encoding='utf-8').read();d=re.search(r'description: >-\n((?:  .*\n)+)',s).group(1);d=' '.join(l.strip() for l in d.splitlines());print(len(d),len(d.encode()))"`
@@ -20,6 +21,7 @@ Si `claude`, `ruby` o PyYAML no están disponibles en tu entorno, dilo explícit
 - `plugins/bayesian-compose/`: plugin instalable: `.claude-plugin/plugin.json`, `plugin.json` (Agent Plugins 1.0.0), `.mcp.json` (vacío a propósito), `skills/bayesian-compose/` (SKILL.md, config.yaml, references/).
 - `skill/`: copia del skill que se empaqueta en el .zip (añade `.skill.json`). Debe ser idéntica a `plugins/bayesian-compose/skills/bayesian-compose/`.
 - `commands/bayes.md`: comando `/bayes`.
+- `plugins/bayesian-compose/commands/bayes.md`: comando `/bayes` que se instala con el plugin; copia idéntica de `commands/bayes.md`.
 - `README.md`, `CHANGELOG.md`, `PRIVACY.md`, `LICENSE`.
 
 ## Convenciones
@@ -56,6 +58,7 @@ Si `claude`, `ruby` o PyYAML no están disponibles en tu entorno, dilo explícit
 ## Reglas de trabajo
 - Cambios mínimos y limitados a la tarea; sin refactors, reformateos ni "mejoras" no pedidas.
 - Todo cambio del skill se aplica idéntico en `skill/` y en `plugins/bayesian-compose/skills/bayesian-compose/`.
+- Todo cambio en `/bayes` se aplica idéntico en `commands/bayes.md` y en `plugins/bayesian-compose/commands/bayes.md`.
 - El comportamiento en español no cambia: no borrar ni reescribir texto existente en español salvo que la tarea lo pida.
 - Telemetría: nunca registrar el texto del mensaje ni datos identificativos (ver `PRIVACY.md`).
 - No eliminar código, archivos, textos ni configuración sin confirmación.
