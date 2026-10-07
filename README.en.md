@@ -408,7 +408,7 @@ Theoretical maximum score: +55. Theoretical minimum score: -62.
 Designed by Pablo Rodríguez López ([mindandhealth.org](https://mindandhealth.org/))
 with assistance from Claude and **Vibe Code** (co-author of compatibility implementations).
 
-With contributions from **OpenAI Codex (ChatGPT)**.
+With contributions from [**OpenAI Codex (ChatGPT)**](https://github.com/codex).
 
 Epistemic criteria based on the [Sequences](https://www.lesswrong.com/rationality)
 by Eliezer Yudkowsky (LessWrong).

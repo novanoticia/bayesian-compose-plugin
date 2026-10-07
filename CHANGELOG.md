@@ -2,6 +2,11 @@
 
 Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan aquí. Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/); versionado [SemVer](https://semver.org/lang/es/) (mayor = ruptura, menor = ampliación, parche = correcciones).
 
+## [Unreleased]
+
+### Añadido
+- Enlace al perfil de GitHub `@codex` en los créditos de los tres README.
+
 ## [1.3.0] — 2026-10-06
 
 ### Añadido
