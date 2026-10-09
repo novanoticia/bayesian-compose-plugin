@@ -252,7 +252,34 @@ Claude debería iniciar la entrevista socrática.
 
 ## Configuración
 
-Edita `skills/bayesian-compose/config.yaml` para personalizar:
+Tu configuración personal vive en **`~/.bayesian-compose/config.yaml`**,
+fuera del plugin: es editable y sobrevive a las actualizaciones. El
+`config.yaml` incluido en el paquete es solo una plantilla.
+
+Puedes crearla o cambiarla desde la conversación:
+
+> Bayesian Compose, crea mi configuración personal.
+> Bayesian Compose, guarda el tono directo como predeterminado.
+> Bayesian Compose, guarda que no quiero el desglose completo de criterios.
+
+El asistente copia la plantilla completa si aún no tienes config personal,
+edita solo lo solicitado y hace un respaldo antes de modificar un archivo
+existente. También puedes editar la copia con tu editor de texto.
+
+En Cowork, dale acceso a la carpeta del equipo donde guardes la copia. Si tu
+cliente usa otra ubicación persistente y escribible, indícasela al asistente;
+puedes definir `BAYESIAN_COMPOSE_HOME` con ese directorio en entornos con
+variables de entorno. El archivo se llamará `config.yaml` y el asistente te
+indicará la ruta utilizada.
+
+Sin acceso a archivos, adjunta o pega tu `config.yaml`: el asistente devuelve
+el YAML actualizado para que lo guardes y lo adjuntes en futuras conversaciones.
+
+Si ya habías personalizado el YAML dentro del plugin, copia **ese archivo**
+a la ubicación personal antes de actualizar. Un config personal existente
+nunca se reemplaza por la plantilla nueva.
+
+Estos son los bloques que puedes personalizar en tu copia:
 
 ### Perfil de usuario
 ```yaml
@@ -309,11 +336,13 @@ criterios_epistemicos:
 ```
 
 ### Telemetría (opcional)
-Para registrar sesiones y detectar patrones en tu escritura:
+Para registrar sesiones y detectar patrones en tu escritura, pide al
+asistente activar la telemetría y crea el directorio si aún no existe:
 ```bash
 mkdir -p ~/.bayesian-compose
 ```
-El skill solo escribe si el directorio existe. No lo crea automáticamente.
+El skill solo registra si lo pides expresamente y el directorio existe.
+Crear la configuración personal no activa la telemetría.
 
 ## Ejemplo de uso
 

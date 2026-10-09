@@ -1,10 +1,17 @@
 # ═══════════════════════════════════════════════════════════════
-# BAYESIAN COMPOSE — Configuración del usuario
+# BAYESIAN COMPOSE — Plantilla de configuración
 # ═══════════════════════════════════════════════════════════════
 #
 # Este archivo define quién eres, cómo quieres que se presente
 # el output, y los pesos de los 30 criterios epistémicos que el
 # skill usa para evaluar cada mensaje que compones.
+#
+# No edites esta plantilla dentro del plugin: puede ser de solo
+# lectura y se reemplaza al actualizar. Copia el archivo completo
+# a ~/.bayesian-compose/config.yaml y edita esa copia personal.
+# También puedes pedir al asistente que la cree o modifique.
+# Si BAYESIAN_COMPOSE_HOME está definida, guarda config.yaml ahí.
+# Crear la copia personal no activa la telemetría.
 #
 # Basado en los mismos 30 criterios de racionalidad bayesiana
 # (LessWrong Sequences) del plugin email-triage, invertidos

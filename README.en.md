@@ -253,7 +253,34 @@ Claude should start the Socratic interview.
 
 ## Configuration
 
-Edit `skills/bayesian-compose/config.yaml` to customize:
+Your personal configuration lives in **`~/.bayesian-compose/config.yaml`**,
+outside the plugin: it is editable and survives updates. The `config.yaml`
+shipped in the package is a template only.
+
+You can create or change it from the conversation:
+
+> Bayesian Compose, create my personal configuration.
+> Bayesian Compose, save a direct tone as my default.
+> Bayesian Compose, save that I do not want the full criteria breakdown.
+
+The assistant copies the full template if you do not have a personal config,
+changes only what you request and creates a backup before modifying an
+existing file. You can also edit the copy with your text editor.
+
+In Cowork, grant access to the folder on your computer containing the copy.
+If your client uses another writable, persistent location, tell the assistant;
+you can set `BAYESIAN_COMPOSE_HOME` to that directory in environments with
+environment variables. The file is named `config.yaml`, and the assistant
+will tell you which path it is using.
+
+Without file access, attach or paste your `config.yaml`: the assistant returns
+the updated YAML for you to save and attach in future conversations.
+
+If you previously customized the YAML inside the plugin, copy **that file**
+to the personal location before updating. An existing personal config is
+never replaced with a new template.
+
+These are the sections you can customize in your copy:
 
 ### User profile
 ```yaml
@@ -310,11 +337,13 @@ criterios_epistemicos:
 ```
 
 ### Telemetry (optional)
-To record sessions and identify patterns in your writing:
+To record sessions and identify patterns in your writing, ask the assistant
+to enable telemetry and create the directory if it does not exist:
 ```bash
 mkdir -p ~/.bayesian-compose
 ```
-The skill only writes if the directory exists. It does not create it automatically.
+The skill records only when you explicitly request it and the directory exists.
+Creating the personal configuration does not enable telemetry.
 
 ## Usage example
 

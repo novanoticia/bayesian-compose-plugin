@@ -6,6 +6,18 @@ Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan a
 
 ### Añadido
 - Enlace al perfil de GitHub `@codex` en los créditos de los tres README.
+- Configuración personal editable en `~/.bayesian-compose/config.yaml`,
+  fuera del paquete de solo lectura y preservada al actualizar; permite
+  un directorio alternativo con `BAYESIAN_COMPOSE_HOME`.
+- Creación y edición de preferencias desde la conversación, con respaldo
+  del config existente y alternativa de YAML adjunto para clientes sin
+  acceso a archivos.
+
+### Cambiado
+- El `config.yaml` distribuido pasa a ser una plantilla; PASO 0 da
+  prioridad a la copia personal y `/bayes` reconoce peticiones de configuración.
+- Crear el directorio para el config ya no se interpreta como activación
+  de telemetría; los registros requieren una petición expresa.
 
 ## [1.3.0] — 2026-10-06
 
