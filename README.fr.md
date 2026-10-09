@@ -253,7 +253,34 @@ Claude devrait commencer l’entretien socratique.
 
 ## Configuration
 
-Modifie `skills/bayesian-compose/config.yaml` pour personnaliser :
+Ta configuration personnelle se trouve dans **`~/.bayesian-compose/config.yaml`**,
+hors du plugin : elle est modifiable et conservée lors des mises à jour.
+Le `config.yaml` fourni dans le paquet est uniquement un modèle.
+
+Tu peux la créer ou la modifier dans la conversation :
+
+> Bayesian Compose, crée ma configuration personnelle.
+> Bayesian Compose, enregistre un ton direct par défaut.
+> Bayesian Compose, enregistre que je ne veux pas le détail complet des critères.
+
+L’assistant copie le modèle complet si tu n’as pas de configuration personnelle,
+modifie uniquement ce que tu demandes et crée une sauvegarde avant de modifier
+un fichier existant. Tu peux aussi modifier la copie avec ton éditeur de texte.
+
+Dans Cowork, donne accès au dossier de ton ordinateur contenant la copie.
+Si ton client utilise un autre emplacement accessible en écriture et persistant,
+indique-le à l’assistant ; tu peux définir `BAYESIAN_COMPOSE_HOME` sur ce dossier
+dans les environnements avec variables d’environnement. Le fichier s’appelle
+`config.yaml` et l’assistant indiquera le chemin utilisé.
+
+Sans accès aux fichiers, joins ou colle ton `config.yaml` : l’assistant renvoie
+le YAML mis à jour pour que tu le sauvegardes et le joignes aux prochaines conversations.
+
+Si tu avais personnalisé le YAML dans le plugin, copie **ce fichier** vers
+l’emplacement personnel avant la mise à jour. Une configuration personnelle
+existante n’est jamais remplacée par le nouveau modèle.
+
+Voici les sections que tu peux personnaliser dans ta copie :
 
 ### Profil utilisateur
 ```yaml
@@ -310,11 +337,13 @@ criterios_epistemicos:
 ```
 
 ### Télémétrie (facultative)
-Pour enregistrer des sessions et repérer des tendances dans ta rédaction :
+Pour enregistrer des sessions et repérer des tendances dans ta rédaction,
+demande à l’assistant d’activer la télémétrie et crée le dossier s’il n’existe pas :
 ```bash
 mkdir -p ~/.bayesian-compose
 ```
-Le skill écrit uniquement si le dossier existe. Il ne le crée pas automatiquement.
+Le skill enregistre uniquement sur demande explicite et si le dossier existe.
+Créer la configuration personnelle n’active pas la télémétrie.
 
 ## Exemple d’utilisation
 

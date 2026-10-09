@@ -38,16 +38,87 @@ por conversación.
 
 ## PASO 0 — Leer configuración
 
-Lee `config.yaml` antes de cualquier fase. Contiene perfil del usuario,
+Lee la configuración antes de cualquier fase. Contiene perfil del usuario,
 preferencias de output y pesos de criterios.
 
-Si no existe, pide al usuario estos campos mínimos:
+### Configuración personal persistente
+
+Resuelve el archivo en este orden:
+
+1. `~/.bayesian-compose/config.yaml` — **config personal editable**,
+   fuera del paquete y de su caché de solo lectura. Si existe, usa este
+   archivo. Las actualizaciones del plugin no deben sobrescribirlo.
+2. `config.yaml` junto a este `SKILL.md` — **plantilla del plugin**.
+   Úsala solo si no existe el config personal. Nunca la edites para guardar
+   preferencias o datos personales del usuario.
+
+Si solo existe la plantilla, ofrece una vez en la conversación:
+
+> He encontrado solo la plantilla. ¿Quieres que cree tu configuración
+> personal editable en `~/.bayesian-compose/config.yaml` para que sobreviva
+> a las actualizaciones?
+
+Si acepta o ya ha pedido guardar su configuración, crea el directorio y
+copia la plantilla completa con las herramientas de archivos disponibles,
+conservando comentarios y los 30 criterios. Comprueba de nuevo que el
+destino no exista antes de copiar: nunca sobrescribas un config personal.
+La copia debe ser escribible por el usuario, aunque la plantilla sea de
+solo lectura. Relee la copia y úsala desde ese momento. Crear este
+directorio para la configuración **no activa la telemetría** (PASO 7).
+
+En Cowork, la ruta debe pertenecer al equipo del usuario y ser accesible
+mediante sus herramientas de archivos o una carpeta que haya compartido.
+No confundas el home del contenedor con el del usuario. Si el cliente no
+puede acceder a esa ruta, usa un directorio persistente y escribible que
+el usuario indique. Si está definida `BAYESIAN_COMPOSE_HOME`, ese directorio
+sustituye a `~/.bayesian-compose/` para el config; busca ahí antes de la
+plantilla. No crees la copia en la caché del plugin ni en un temporal
+prometiendo persistencia. Indica siempre la ruta real utilizada.
+
+Si no hay herramientas de archivos (por ejemplo, en un cliente de chat),
+acepta un `config.yaml` adjunto o pegado por el usuario como configuración
+personal de esa conversación; tiene prioridad sobre la plantilla. Devuelve
+el YAML completo actualizado para que lo guarde y vuelva a adjuntarlo en
+otra conversación. No afirmes haberlo guardado en el equipo. Si el usuario
+declina crear la copia, continúa con la plantilla y sus preferencias para
+esta sesión, sin afirmar que se han persistido.
+
+Si el config personal existe pero no se puede leer o su YAML es inválido,
+explica el problema y ofrece corregirlo; no lo reemplaces ni uses la
+plantilla en silencio. Si hay un parser YAML disponible, úsalo para validar
+antes de operar; no instales dependencias para ello.
+
+Si no existe ninguna configuración, pide al usuario estos campos mínimos:
 1. **nombre** y **perfil** (rol, formación, intereses)
 2. **idioma** de output
 3. **tipo de mensaje por defecto** (email, slack, general)
 
 Sin perfil, la estimación de perspectiva del receptor es menos precisa,
 pero el skill funciona igualmente con criterios universales.
+
+### Editar preferencias desde la conversación
+
+Una petición de configurar Bayesian Compose se atiende aquí, sin iniciar
+la entrevista de composición. Ejemplos: «Bayesian Compose, configura mi
+perfil» o «Bayesian Compose, guarda el tono directo como predeterminado».
+
+- Lee primero el config personal; si falta, créalo desde la plantilla
+  siguiendo las reglas anteriores. Pregunta solo por los valores que
+  falten para atender la petición.
+- Cambia únicamente las claves solicitadas. Conserva el resto del YAML,
+  sus comentarios y las preferencias existentes; no regeneres el archivo
+  entero desde la plantilla al actualizar el plugin.
+- Antes de editar un archivo existente, guarda una copia de respaldo en
+  el mismo directorio con un nombre único, sin pisar respaldos anteriores.
+  No guardes nada en la plantilla ni en el repositorio del plugin.
+- Valida el YAML modificado antes de guardarlo si hay parser disponible;
+  no guardes YAML inválido. Relee el archivo tras guardarlo.
+  Si no puedes escribirlo, devuelve el YAML actualizado
+  para guardarlo manualmente y explica que aún no se ha persistido.
+- Resume las claves cambiadas y la ruta donde se guardaron. Aplica los
+  nuevos valores en esta conversación y relee el config personal en cada
+  nueva invocación. Una preferencia expresada solo para este mensaje no
+  se guarda como predeterminada salvo que el usuario lo pida.
 
 ### Idioma de la conversación
 
@@ -428,16 +499,19 @@ Si el directorio `~/.bayesian-compose/` existe, el skill puede registrar:
 - **patrones.jsonl**: patrones recurrentes del usuario (ej: siempre puntúa
   bajo en distancia inferencial, tiende a evidencia filtrada)
 
-La telemetría es puramente local y opt-in. No se escribe nada sin que el
-usuario tenga el directorio creado.
+La telemetría es puramente local y opt-in. Requiere que el usuario la
+solicite expresamente y que el directorio exista. La existencia de
+`~/.bayesian-compose/` o de `config.yaml` por la configuración personal
+no constituye consentimiento para registrar sesiones o patrones.
 
 **Privacidad:** la telemetría registra solo metadatos (scores, tipo de
 mensaje, criterios, iteraciones). **Nunca** registrar el texto del mensaje
 o del borrador, ni nombres, direcciones de email, teléfonos u otros datos
 identificativos del destinatario o de terceros.
 
-El skill NO crea el directorio automáticamente. Si el usuario quiere
-telemetría, debe crearlo manualmente:
+El skill NO crea el directorio automáticamente para telemetría. Si el
+usuario quiere telemetría, debe pedir activarla y, si aún no existe el
+directorio, crearlo manualmente:
 ```
 mkdir -p ~/.bayesian-compose
 ```

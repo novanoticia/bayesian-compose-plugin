@@ -47,6 +47,16 @@ Si `claude`, `ruby` o PyYAML no están disponibles en tu entorno, dilo explícit
 - Para añadir un texto nuevo: añadirlo en `SKILL.md` en español y su
   traducción en cada `<código>.md`, sincronizando ambas copias.
 
+## Configuración personal
+- El `config.yaml` distribuido en ambas copias es solo plantilla; nunca
+  guardar ahí preferencias ni datos personales del usuario.
+- PASO 0 usa `~/.bayesian-compose/config.yaml` (o `config.yaml` dentro de
+  `BAYESIAN_COMPOSE_HOME` si está definida) antes que la plantilla.
+- El skill permite crear y editar la copia con las herramientas del
+  cliente; sin acceso a archivos devuelve el YAML para guardarlo a mano.
+- Crear el directorio para el config no activa telemetría: PASO 7 requiere
+  una petición expresa del usuario.
+
 ## No tocar sin aprobación explícita
 - El `name` del plugin y del skill (`bayesian-compose`), y los nombres o rutas de carpetas y archivos existentes.
 - `.claude-plugin/marketplace.json`, los tres `plugin.json`, `skill/.skill.json`, `.mcp.json`, `icon.png`.

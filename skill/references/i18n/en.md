@@ -4,6 +4,12 @@ Este archivo es solo una traducción de los textos fijos. Ante cualquier
 discrepancia, manda `SKILL.md`, cuya versión española es la referencia
 canónica. No añade reglas ni modifica los criterios o la puntuación.
 
+## Configuración personal — PASO 0
+
+| Español | English |
+| --- | --- |
+| He encontrado solo la plantilla. ¿Quieres que cree tu configuración personal editable en `~/.bayesian-compose/config.yaml` para que sobreviva a las actualizaciones? | I found only the template. Would you like me to create your editable personal configuration at `~/.bayesian-compose/config.yaml` so it survives updates? |
+
 ## Preguntas de la entrevista — PASO 2
 
 | Pregunta | Español | English |
