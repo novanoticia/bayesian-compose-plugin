@@ -2,6 +2,8 @@
 
 # Bayesian Compose v1.3.0
 
+[![Version actuelle sur main](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnovanoticia%2Fbayesian-compose-plugin%2Fmain%2Fplugins%2Fbayesian-compose%2Fplugin.json&query=%24.version&prefix=v&label=Version%20actuelle%20sur%20main&color=blue)](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/plugins/bayesian-compose/plugin.json)
+
 Composition épistémique de messages pour Claude Cowork et Claude Code.
 
 > **Compatible avec [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — le format portable de distribution de l’Agentic AI Foundation (OpenAI, Amazon,
