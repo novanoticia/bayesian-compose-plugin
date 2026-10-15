@@ -5,6 +5,7 @@ Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan a
 ## [Unreleased]
 
 ### Añadido
+- Referencias separadas a la versión en `main` y la última release en los tres README.
 - Indicador de versión actual en `main` al principio de los tres README, leído del manifiesto.
 - Enlace al perfil de GitHub `@codex` en los créditos de los tres README.
 - Configuración personal editable en `~/.bayesian-compose/config.yaml`,
