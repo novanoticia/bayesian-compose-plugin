@@ -1,6 +1,7 @@
 # Bayesian Compose v1.3.0
 
-[![Versión actual en main](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnovanoticia%2Fbayesian-compose-plugin%2Fmain%2Fplugins%2Fbayesian-compose%2Fplugin.json&query=%24.version&prefix=v&label=Versi%C3%B3n%20actual%20en%20main&color=blue)](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/plugins/bayesian-compose/plugin.json)
+[![Versión en main](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnovanoticia%2Fbayesian-compose-plugin%2Fmain%2Fplugins%2Fbayesian-compose%2Fplugin.json&query=%24.version&prefix=v&label=Versi%C3%B3n%20en%20main&color=blue)](https://github.com/novanoticia/bayesian-compose-plugin/blob/main/plugins/bayesian-compose/plugin.json)
+[![Última versión publicada](https://img.shields.io/github/v/release/novanoticia/bayesian-compose-plugin?display_name=tag&label=%C3%9Altima%20versi%C3%B3n%20publicada&color=green)](https://github.com/novanoticia/bayesian-compose-plugin/releases/latest)
 🇬🇧 [English version](README.en.md) · 🇫🇷 [Version française](README.fr.md)
 
 Composición epistémica de mensajes para Claude Cowork y Claude Code.
