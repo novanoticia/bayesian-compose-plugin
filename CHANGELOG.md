@@ -8,6 +8,8 @@ Todos los cambios relevantes del plugin/skill `bayesian-compose` se documentan a
 - Referencias separadas a la versión en `main` y la última release en los tres README.
 - Indicador de versión actual en `main` al principio de los tres README, leído del manifiesto.
 - Enlace al perfil de GitHub `@codex` en los créditos de los tres README.
+- Índice, sección «En 3 pasos» y comandos de instalación por CLI en los tres README;
+  el aviso de compatibilidad con Agent Plugins pasa a la sección de instalación.
 - Configuración personal editable en `~/.bayesian-compose/config.yaml`,
   fuera del paquete de solo lectura y preservada al actualizar; permite
   un directorio alternativo con `BAYESIAN_COMPOSE_HOME`.

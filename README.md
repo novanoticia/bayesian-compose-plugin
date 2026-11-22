@@ -6,19 +6,13 @@
 
 Composición epistémica de mensajes para Claude Cowork y Claude Code.
 
-> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon,
-> Microsoft, Cursor y Vercel, con Google como *core maintainer*).
-> El paquete lleva el manifiesto portable `plugin.json` en la raíz del plugin y
-> el skill en `plugins/bayesian-compose/skills/bayesian-compose/SKILL.md`, así que cualquier cliente conformante lo descubre.
->
-> **Funciona en ChatGPT.** El skill es texto: instrucciones y criterios, sin
-> ejecución local, así que se instala activando **Work** en el selector de ChatGPT y
-> añadiéndolo desde **Complementos**, por nombre o por la URL de este repositorio.
-> Funciona igual que en Claude. Su frontmatter
-> valida contra el conjunto cerrado de [Agent Skills](https://agentskills.io/specification),
-> que es lo que ChatGPT, claude.ai y la Skills API exigen para aceptar la subida
-> —una clave de más ahí no se ignora, falla con error duro—. Están también en el
-> **plan gratuito**, con límites de uso.
+**En esta página:** [En 3 pasos](#en-3-pasos) · [Qué hace](#qué-hace) · [Cómo funciona](#cómo-funciona) · [Idiomas](#idiomas) · [Instalación](#instalación) · [Configuración](#configuración) · [Ejemplo](#ejemplo-de-uso) · [Troubleshooting](#troubleshooting)
+
+## En 3 pasos
+
+1. **Instálalo**: en Cowork, **Personalizar → Plugins → Añadir marketplace** → `novanoticia/bayesian-compose-plugin` → **Sincronizar** → «+». Otras plataformas en [Instalación](#instalación).
+2. **Empieza**: escribe `/bayesian-compose` antes de redactar un mensaje (o pega un borrador que ya tengas).
+3. **Responde la entrevista** y revisa el diagnóstico: puntuación, fortalezas, debilidades y una versión mejorada, desde el punto de vista de quien lo recibirá.
 
 ## Qué hace
 
@@ -226,6 +220,14 @@ En francés, el skill se activa por el sentido de la petición, con
 3. Añade: `novanoticia/bayesian-compose-plugin`
 4. Activa el plugin
 
+O con los comandos:
+
+```
+/plugin marketplace add novanoticia/bayesian-compose-plugin
+/plugin install bayesian-compose@bayesian-compose-plugin
+/reload-plugins
+```
+
 ### Desde Claude Chat (Skills)
 
 1. Descarga el paquete [bayesian-compose.zip](https://github.com/novanoticia/bayesian-compose-plugin/releases/latest/download/bayesian-compose.zip) (sección **Releases** del repositorio).
@@ -252,6 +254,22 @@ Tras instalar, inicia una nueva conversación y escribe:
 ```
 
 Claude debería iniciar la entrevista socrática.
+
+### Compatibilidad con otros clientes
+
+> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon,
+> Microsoft, Cursor y Vercel, con Google como *core maintainer*).
+> El paquete lleva el manifiesto portable `plugin.json` en la raíz del plugin y
+> el skill en `plugins/bayesian-compose/skills/bayesian-compose/SKILL.md`, así que cualquier cliente conformante lo descubre.
+>
+> **Funciona en ChatGPT.** El skill es texto: instrucciones y criterios, sin
+> ejecución local, así que se instala activando **Work** en el selector de ChatGPT y
+> añadiéndolo desde **Complementos**, por nombre o por la URL de este repositorio.
+> Funciona igual que en Claude. Su frontmatter
+> valida contra el conjunto cerrado de [Agent Skills](https://agentskills.io/specification),
+> que es lo que ChatGPT, claude.ai y la Skills API exigen para aceptar la subida
+> —una clave de más ahí no se ignora, falla con error duro—. Están también en el
+> **plan gratuito**, con límites de uso.
 
 ## Configuración
 
